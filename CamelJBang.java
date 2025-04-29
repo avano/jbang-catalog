@@ -18,7 +18,6 @@
  */
 
 //JAVA 17+
-//DEPS org.apache.camel:camel-jbang-core:${camel.jbang.version:4.10.3}
 
 package main;
 
@@ -34,3 +33,4 @@ public class CamelJBang {
     }
 
 }
+
