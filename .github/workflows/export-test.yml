@@ -1,0 +1,20 @@
+name: Test quarkus export
+on: workflow_dispatch
+
+jobs:
+  export-test:
+    name: Export to quarkus test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup JBang
+        run: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
+
+      - name: Install Camel CLI
+        run: "jbang --verbose app install --name camel ./CamelJBang.java"
+
+      - name: Create and export an integration
+        run: |
+          camel init Hello.java
+          camel export --gav com.test:integration:1.0 --dir integration --runtime quarkus Hello.java
+
